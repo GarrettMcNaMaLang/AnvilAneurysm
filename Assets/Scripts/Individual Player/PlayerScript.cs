@@ -144,6 +144,11 @@ public class PlayerScript : MonoBehaviour
         vVelocity = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y * gravScale);
     }
 
+    public void LeftClickEvent()
+    {
+
+    }
+
     void LookUpdate()
     {
         Vector2 input = new Vector2(lInput.x * lookSensitivity.x, lInput.y * lookSensitivity.y);
@@ -193,4 +198,19 @@ public class PlayerScript : MonoBehaviour
             TryJump();
         }
     }
+
+    bool LCEvent;
+
+    void OnClick(InputValue val)
+    {
+
+        if (val.isPressed && LCEvent)
+        {
+            
+            
+
+        }
+    }
+
+    
 }

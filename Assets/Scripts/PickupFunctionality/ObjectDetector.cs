@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -5,7 +6,10 @@ using UnityEngine;
 
 public class ObjectDetector : MonoBehaviour
 {
+    public static event Action LeftClickEvent;
+    
 
+    PlayerScript playerParent;
     public Camera camera;
 
     public float rayDistance;
@@ -14,9 +18,19 @@ public class ObjectDetector : MonoBehaviour
 
     void Awake()
     {
+        playerParent = GetComponentInParent<PlayerScript>();
+    }
+
+
+    void OnEnable()
+    {
         
     }
 
+    void OnDisable()
+    {
+        
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
