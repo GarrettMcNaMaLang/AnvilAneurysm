@@ -2,17 +2,20 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-
+//
 
 public class ObjectDetector : MonoBehaviour
 {
     public static event Action LeftClickEvent;
-    
+
+    public LayerMask PickUpObjects;
 
     PlayerScript playerParent;
     public Camera camera;
 
-    public float rayDistance;
+    public GameObject holdHere;
+
+    public float rayDistance = 5;
 
     Vector3 position = new Vector3(Screen.width / 2, Screen.height / 2, 0);
 
@@ -38,19 +41,26 @@ public class ObjectDetector : MonoBehaviour
 
     }
 
+    RaycastHit hit;
+
     // Update is called once per frame
     void LateUpdate()
     {
-        Ray ray = camera.ScreenPointToRay(position);
-        RaycastHit hit;
-        Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red);
+        
+        //Ray ray = camera.ScreenPointToRay(camera.transform.forward);
+        //RaycastHit hit;
+        Debug.DrawRay(camera.transform.position, camera.transform.forward * rayDistance, Color.red);
 
-        if (Physics.Raycast(ray, out hit))
+        if (hit.collider != null)
         {
-            if (hit.collider.TryGetComponent<PickUpAbleObject>(out PickUpAbleObject obj))
-            {
-                
-            }
+            hit.collider.GetComponent<PickUpAbleObject>()?.BeingLookedAt(false);
+    
+        }
+        
+        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, rayDistance, PickUpObjects))
+        {
+            //Highlight script]
+            hit.collider.GetComponent<PickUpAbleObject>()?.BeingLookedAt(true);
         }
 
     }

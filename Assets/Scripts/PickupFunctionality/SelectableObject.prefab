@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6526619226093699932}
   - component: {fileID: 1989439820998449629}
   - component: {fileID: 7351165361500369747}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SelectableObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,3 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53716367be2a542d4a6ec356725adea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderers: []
+  color: {r: 1, g: 0.023584902, b: 0.023584902, a: 0}
