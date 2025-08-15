@@ -1,12 +1,15 @@
 
 using JetBrains.Annotations;
 using Unity.Cinemachine;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerScript : MonoBehaviour
 {
+    
+
     //camera Parameters
     public float cNormalFOV;
 
@@ -80,6 +83,8 @@ public class PlayerScript : MonoBehaviour
             cController = GetComponent<CharacterController>();
         }
     }
+
+    
 
     void Update()
     {
@@ -206,11 +211,14 @@ public class PlayerScript : MonoBehaviour
 
         if (val.isPressed && LCEvent)
         {
-            
-            
+
+
 
         }
     }
 
+
+
+   
     
 }

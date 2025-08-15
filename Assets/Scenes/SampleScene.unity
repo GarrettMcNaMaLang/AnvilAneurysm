@@ -605,7 +605,35 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ae4abbe1-3f94-445c-a60f-fa0d8453218e
+    m_ActionName: 'Player/Moving[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a62fce48-65bf-470c-9895-f22ea0c9e83e
+    m_ActionName: 'Player/Look[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 308df994-7776-48a1-ad80-c842248d9d37
+    m_ActionName: 'Player/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0e7eaaf0-1b63-46d6-8f5d-110ad23bd3dd
+    m_ActionName: 'Player/Sprint[/Keyboard/shift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7c6b4fdc-79c1-4e42-9db2-d607b4d37239
+    m_ActionName: 'Player/LClick[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ad8bb9d0-1dc1-4fb0-b05c-4358b2006618
+    m_ActionName: 'Player/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 21e917d0-0c7e-437e-a4ee-dd5e1b43dc51
+    m_ActionName: 'Player/Drop[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -623,6 +651,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0982df2d7c13b4d3d9469f9ade31ae28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactInput: {fileID: -4487694725153270925, guid: 21ff60642ad724d729630714892dc300, type: 3}
+  dropInput: {fileID: -3229216466995304107, guid: 21ff60642ad724d729630714892dc300, type: 3}
+  useInput: {fileID: -1457511010870452205, guid: 21ff60642ad724d729630714892dc300, type: 3}
   PickUpObjects:
     serializedVersion: 2
     m_Bits: 8

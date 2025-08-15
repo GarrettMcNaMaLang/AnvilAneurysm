@@ -67,6 +67,25 @@ public class InputManager : MonoBehaviour
     {
         return playerControls.Player.Jump.triggered;
     }
+
+    public bool IsInteract()
+    {
+        return playerControls.Player.Interact.triggered;
+        
+    }
+
+    public bool isUse()
+    {
+        return playerControls.Player.LClick.triggered;
+        
+            
+        
+    }
+
+    public bool isDropping()
+    {
+        return playerControls.Player.Drop.triggered;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

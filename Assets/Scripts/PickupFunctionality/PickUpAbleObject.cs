@@ -35,7 +35,7 @@ public class PickUpAbleObject : MonoBehaviour
     {
         if (value)
         {
-            Debug.Log("Object is Seen");
+            //Debug.Log("Object is Seen");
             foreach (var material in materials)
             {
                 material.EnableKeyword("_EMISSION");
