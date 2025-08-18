@@ -17,7 +17,7 @@ public class ObjectDetector : MonoBehaviour
     PlayerScript playerParent;
     public Camera camera;
 
-    public GameObject holdHere;
+    public GameObject holdHere, currObject;
 
     public float rayDistance = 5;
 
@@ -41,9 +41,7 @@ public class ObjectDetector : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        interactInput.action.performed += OnInteract;
-        dropInput.action.performed += OnDrop;
-        useInput.action.performed += OnLClick;
+        
     }
 
     RaycastHit hit;
@@ -62,20 +60,24 @@ public class ObjectDetector : MonoBehaviour
 
         }
 
+        if (currObject != null) //will return if the player is holding an object currently
+            return;
+
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, rayDistance, PickUpObjects))
-        {
-            //Highlight script]
-            hit.collider.GetComponent<PickUpAbleObject>()?.BeingLookedAt(true);
-        }
+            {
+                //Highlight script]
+                hit.collider.GetComponent<PickUpAbleObject>()?.BeingLookedAt(true);
+            }
 
     }
 
-    public void OnInteract(InputAction.CallbackContext obj)
+    public void OnInteract(InputValue val)
     {
         Debug.Log("In Interact");
         
         if (hit.collider != null)
         {
+            if(val.isPressed)
             Debug.Log(hit.collider.name);
         }
     }
@@ -85,6 +87,7 @@ public class ObjectDetector : MonoBehaviour
 
     }
     
+    //OnUse in hand item
     public void OnLClick(InputAction.CallbackContext obj)
     {
 
