@@ -21,7 +21,7 @@ public class ObjectDetector : MonoBehaviour
 
     public float rayDistance = 5;
 
-
+    public bool currInteracting;
 
     void Awake()
     {
@@ -77,14 +77,58 @@ public class ObjectDetector : MonoBehaviour
         
         if (hit.collider != null)
         {
-            if(val.isPressed)
-            Debug.Log(hit.collider.name);
+            if (val.isPressed)
+            {
+                if (hit.collider.TryGetComponent<InteractableScript>(out InteractableScript Interactable))
+                {
+                    Debug.Log("Interactable Object " + hit.collider.name);
+                    //acquire hit object
+                    //Interactable.InteractableTrigger();
+                    //currInteracting = true;
+                }
+                    
+                if (hit.collider.TryGetComponent<HoldableObject>(out HoldableObject pickUp))
+                {
+                    currObject = hit.collider.gameObject;
+                    currObject.transform.position = Vector3.zero;
+                    currObject.transform.rotation = Quaternion.identity;
+
+                    currObject.transform.SetParent(holdHere.transform, false);
+
+                    if (hit.collider.TryGetComponent<Rigidbody>(out Rigidbody rb))
+                    {
+                        rb.isKinematic = true;
+                    }
+                    return;
+                }
+
+                if (hit.collider.TryGetComponent<ValueObject>(out ValueObject value))
+                {
+                    Debug.Log("Value Object " + hit.collider.name);
+                }
+            }
         }
     }
 
-    public void OnDrop(InputAction.CallbackContext obj)
+    public void OnDrop(InputValue val)
     {
+        if (currObject != null)
+        {
 
+
+            if (val.isPressed)
+            {
+
+                currObject.transform.SetParent(null);
+                if (hit.collider.TryGetComponent<Rigidbody>(out Rigidbody rb))
+                {
+                    rb.isKinematic = false;
+                }
+                currObject = null;
+                return;
+            }
+            
+        }
     }
     
     //OnUse in hand item
