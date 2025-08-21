@@ -81,9 +81,13 @@ public class ObjectDetector : MonoBehaviour
             {
                 if (hit.collider.TryGetComponent<InteractableScript>(out InteractableScript Interactable))
                 {
-                    Debug.Log("Interactable Object " + hit.collider.name);
+                    if (Interactable.PlayerAvailable)
+                    {
+                        Debug.Log("Interactable Object " + hit.collider.name);
                     //acquire hit object
-                    //Interactable.InteractableTrigger();
+                        Interactable.InteractableTrigger(playerParent);
+                    }
+                    
                     //currInteracting = true;
                 }
                     

@@ -48,7 +48,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-
+    public static bool inEvent = false;
 
     //input Vectors
     public Vector2 mInput;
@@ -101,6 +101,11 @@ public class PlayerScript : MonoBehaviour
 
     void MoveUpdate()
     {
+        if (inEvent)
+        {
+            Debug.Log("Player is in Event");
+            return;
+        }
         Vector3 movement = transform.forward * mInput.y + transform.right * mInput.x;
 
         movement.y = 0f;
@@ -156,6 +161,12 @@ public class PlayerScript : MonoBehaviour
 
     void LookUpdate()
     {
+        if (inEvent)
+        {
+            Debug.Log("Player is in Event");
+            return;
+        }
+        
         Vector2 input = new Vector2(lInput.x * lookSensitivity.x, lInput.y * lookSensitivity.y);
 
         //looking up and down

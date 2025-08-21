@@ -36,8 +36,5 @@ public class GM : MonoBehaviour
 
     }
 
-    void PlayerInteractEvent(int eventMode, InteractableScript interactInstance)
-    {
-        
-    }
+
 }
